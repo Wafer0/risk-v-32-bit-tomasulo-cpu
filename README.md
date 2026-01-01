@@ -482,25 +482,22 @@ ls tests/programs/*.hex
 
 ---
 
-## Status
+## OpenLane Results
 
-Design Status: Complete - Tomasulo's Algorithm fully implemented
-Verification: All unit tests pass, all system tests pass
-ASIC Implementation: Ready for synthesis and place & route
+Some large binary files in the OpenLane results directory have been compressed with gzip to keep the repository size manageable:
 
----
+- `openlane/runs/run_1/results/routing/top.odb.gz`
+- `openlane/runs/run_1/tmp/routing/25-fill.odb.gz`
+- `openlane/runs/run_1/tmp/signoff/magic_spice_ext/top.ext.gz`
+
+To restore the complete OpenLane results, decompress these files:
+```bash
+cd openlane/runs/run_1
+gunzip results/routing/top.odb.gz
+gunzip tmp/routing/25-fill.odb.gz
+gunzip tmp/signoff/magic_spice_ext/top.ext.gz
+```
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Academic Integrity
-
-This project is for educational purposes. The implementation demonstrates understanding of:
-- Out-of-order execution principles
-- Tomasulo's Algorithm
-- Register renaming
-- Dynamic scheduling
-- ASIC design flow
-
-**Do not copy code** from other sources. The learning value is in understanding the timing interactions and dataflow.
