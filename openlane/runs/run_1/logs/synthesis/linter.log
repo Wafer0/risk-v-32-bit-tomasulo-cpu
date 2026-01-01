@@ -1,0 +1,276 @@
+%Warning-PINMISSING: ../rtl/top.sv:130:13: Cell has missing pin: 'imm_type'
+  130 |     decoder decoder_inst (
+      |             ^~~~~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.009
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: ../rtl/ifq.sv:30:10: Cell pin connected by name with empty reference: 'error'
+   30 |         .error()
+      |          ^~~~~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:26:22: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'count' generates 4 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   26 | assign full = (count == DEPTH);
+      |                      ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:44:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'wr_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   44 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:44:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   44 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:54:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'rd_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   54 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:54:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   54 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:64:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'wr_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   64 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:64:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   64 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:66:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'rd_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   66 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:66:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   66 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:69:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'wr_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   69 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:69:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   69 |                     wr_ptr <= (wr_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHEXPAND: ../rtl/fifo.sv:73:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'rd_ptr' generates 3 bits.
+                                          : ... In instance top.ifq_inst.ifq_fifo
+   73 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                                       ^
+%Warning-WIDTHTRUNC: ../rtl/fifo.sv:73:28: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 bits.
+                                         : ... In instance top.ifq_inst.ifq_fifo
+   73 |                     rd_ptr <= (rd_ptr + 1) % DEPTH;
+      |                            ^~
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:37:29: Bit extraction of var[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   37 |         commit_valid = valid[head_ptr] && !flush;
+      |                             ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:38:27: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   38 |         commit_rd = rd_arr[head_ptr];
+      |                           ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:39:33: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   39 |         commit_value = value_arr[head_ptr];
+      |                                 ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:57:22: Bit extraction of var[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   57 |                 valid[cdb_tag] <= 1'b1;
+      |                      ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:58:26: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   58 |                 value_arr[cdb_tag] <= cdb_value;
+      |                          ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:63:23: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   63 |                 rd_arr[rob_tail_in] <= rd;
+      |                       ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:64:23: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   64 |                 pc_arr[rob_tail_in] <= pc;
+      |                       ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:65:30: Bit extraction of array[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   65 |                 inst_type_arr[rob_tail_in] <= inst_type;
+      |                              ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:66:22: Bit extraction of var[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   66 |                 valid[rob_tail_in] <= 1'b0;   
+      |                      ^
+%Warning-WIDTHTRUNC: ../rtl/reorder_buffer.sv:72:22: Bit extraction of var[15:0] requires 4 bit index, not 5 bits.
+                                                   : ... In instance top.rob_inst
+   72 |                 valid[head_ptr] <= 1'b0;   
+      |                      ^
+%Warning-WIDTHEXPAND: ../rtl/instr_mem.sv:27:38: Operator LT expects 32 bits on the LHS, but LHS's SEL generates 30 bits.
+                                               : ... In instance top.imem_inst
+   27 |     assign instruction = (addr[31:2] < MEM_SIZE) ? mem[addr[31:2]] : 32'h00000013;
+      |                                      ^
+%Warning-WIDTHTRUNC: ../rtl/instr_mem.sv:27:55: Bit extraction of array[127:0] requires 7 bit index, not 30 bits.
+                                              : ... In instance top.imem_inst
+   27 |     assign instruction = (addr[31:2] < MEM_SIZE) ? mem[addr[31:2]] : 32'h00000013;
+      |                                                       ^
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:11:24: Signal is not used: 'dmem_rdata'
+                                          : ... In instance top
+   11 |     input logic [31:0] dmem_rdata,
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:42:11: Signal is not used: 'alu_zero'
+                                          : ... In instance top
+   42 |     logic alu_zero;
+      |           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:180:17: Signal is not used: 'rob_head'
+                                           : ... In instance top
+  180 |     logic [4:0] rob_head;
+      |                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:317:11: Signal is not used: 'issue_valid'
+                                           : ... In instance top
+  317 |     logic issue_valid;
+      |           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:318:18: Signal is not used: 'issue_instruction'
+                                           : ... In instance top
+  318 |     logic [31:0] issue_instruction;
+      |                  ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:319:17: Signal is not used: 'issue_rd'
+                                           : ... In instance top
+  319 |     logic [4:0] issue_rd;
+      |                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:320:18: Signal is not used: 'issue_imm'
+                                           : ... In instance top
+  320 |     logic [31:0] issue_imm;
+      |                  ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:321:17: Signal is not used: 'issue_funct3'
+                                           : ... In instance top
+  321 |     logic [2:0] issue_funct3;
+      |                 ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:322:17: Signal is not used: 'issue_funct7'
+                                           : ... In instance top
+  322 |     logic [6:0] issue_funct7, issue_opcode;
+      |                 ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:322:31: Signal is not used: 'issue_opcode'
+                                           : ... In instance top
+  322 |     logic [6:0] issue_funct7, issue_opcode;
+      |                               ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:323:17: Signal is not used: 'issue_rob_tag'
+                                           : ... In instance top
+  323 |     logic [4:0] issue_rob_tag;
+      |                 ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:324:18: Signal is not used: 'issue_vj'
+                                           : ... In instance top
+  324 |     logic [31:0] issue_vj, issue_vk;
+      |                  ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:324:28: Signal is not used: 'issue_vk'
+                                           : ... In instance top
+  324 |     logic [31:0] issue_vj, issue_vk;
+      |                            ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:325:17: Signal is not used: 'issue_alu_op'
+                                           : ... In instance top
+  325 |     logic [3:0] issue_alu_op;
+      |                 ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:430:25: Signal is not used: 'branch_mispredict'
+                                           : ... In instance top
+  430 |     logic branch_taken, branch_mispredict;
+      |                         ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:431:33: Signal is not used: 'branch_correct_pc'
+                                           : ... In instance top
+  431 |     logic [31:0] branch_target, branch_correct_pc;
+      |                                 ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/top.sv:555:18: Signal is not used: 'combined_data'
+                                           : ... In instance top
+  555 |     logic [31:0] combined_data;
+      |                  ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:7:15: Parameter is not used: 'IFQ_DEPTH'
+                                            : ... In instance top
+    7 | parameter int IFQ_DEPTH = 8;
+      |               ^~~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:8:15: Parameter is not used: 'NUM_REGS'
+                                            : ... In instance top
+    8 | parameter int NUM_REGS = 32;
+      |               ^~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:9:15: Parameter is not used: 'DATA_WIDTH'
+                                            : ... In instance top
+    9 | parameter int DATA_WIDTH = 32;
+      |               ^~~~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:10:15: Parameter is not used: 'ADDR_WIDTH'
+                                             : ... In instance top
+   10 | parameter int ADDR_WIDTH = 32;
+      |               ^~~~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:11:15: Parameter is not used: 'ROB_TAG_WIDTH'
+                                             : ... In instance top
+   11 | parameter int ROB_TAG_WIDTH = $clog2(ROB_SIZE);
+      |               ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: ../rtl/structs.sv:12:15: Parameter is not used: 'RS_TAG_WIDTH'
+                                             : ... In instance top
+   12 | parameter int RS_TAG_WIDTH = $clog2(RS_SIZE);
+      |               ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/instr_mem.sv:7:24: Bits of signal are not used: 'addr'[1:0]
+                                               : ... In instance top.imem_inst
+    7 |     input logic [31:0] addr,
+      |                        ^~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:6:17: Signal is not used: 'clk'
+                                              : ... In instance top.dispatch_inst
+    6 |     input logic clk,
+      |                 ^~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:7:17: Signal is not used: 'rst'
+                                              : ... In instance top.dispatch_inst
+    7 |     input logic rst,
+      |                 ^~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:9:24: Signal is not used: 'pc'
+                                              : ... In instance top.dispatch_inst
+    9 |     input logic [31:0] pc,
+      |                        ^~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:10:17: Signal is not used: 'rs1_valid'
+                                               : ... In instance top.dispatch_inst
+   10 |     input logic rs1_valid,
+      |                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:11:17: Signal is not used: 'rs2_valid'
+                                               : ... In instance top.dispatch_inst
+   11 |     input logic rs2_valid,
+      |                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:12:23: Signal is not used: 'rs1_tag'
+                                               : ... In instance top.dispatch_inst
+   12 |     input logic [4:0] rs1_tag,
+      |                       ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:13:23: Signal is not used: 'rs2_tag'
+                                               : ... In instance top.dispatch_inst
+   13 |     input logic [4:0] rs2_tag,
+      |                       ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:14:24: Signal is not used: 'rs1_val'
+                                               : ... In instance top.dispatch_inst
+   14 |     input logic [31:0] rs1_val,
+      |                        ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:15:24: Signal is not used: 'rs2_val'
+                                               : ... In instance top.dispatch_inst
+   15 |     input logic [31:0] rs2_val,
+      |                        ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:18:23: Signal is not used: 'rob_tail'
+                                               : ... In instance top.dispatch_inst
+   18 |     input logic [4:0] rob_tail,
+      |                       ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/dispatch.sv:19:23: Signal is not used: 'rs_slot'
+                                               : ... In instance top.dispatch_inst
+   19 |     input logic [2:0] rs_slot,
+      |                       ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/reorder_buffer.sv:13:23: Bits of signal are not used: 'cdb_tag'[4]
+                                                     : ... In instance top.rob_inst
+   13 |     input logic [4:0] cdb_tag,
+      |                       ^~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/reorder_buffer.sv:17:24: Signal is not used: 'flush_pc'
+                                                     : ... In instance top.rob_inst
+   17 |     input logic [31:0] flush_pc,
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/reorder_buffer.sv:28:18: Signal is not used: 'pc_arr'
+                                                     : ... In instance top.rob_inst
+   28 |     logic [31:0] pc_arr [0:15];
+      |                  ^~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/reorder_buffer.sv:29:17: Signal is not used: 'inst_type_arr'
+                                                     : ... In instance top.rob_inst
+   29 |     logic [2:0] inst_type_arr [0:15];
+      |                 ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../rtl/fifo.sv:23:19: Signal is not used: 'rd_data_reg'
+                                           : ... In instance top.ifq_inst.ifq_fifo
+   23 | logic [WIDTH-1:0] rd_data_reg;
+      |                   ^~~~~~~~~~~
+%Warning-UNSIGNED: ../rtl/top.sv:83:37: Comparison is constant due to unsigned arithmetic
+                                      : ... In instance top
+   83 |             if (!fetching_nop && pc >= 32'h0) begin
+      |                                     ^~
+%Warning-BLKSEQ: ../rtl/top.sv:362:42: Blocking assignment '=' in sequential logic process
+                                     : ... Suggest using delayed assignment '<='
+  362 |                     3'b111: issue_alu_op = 4'b0010;   
+      |                                          ^

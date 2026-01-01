@@ -1,0 +1,3 @@
+STATS: Cycles: 500
+STATS: Instructions: 101
+STATS: IPC: 0.2020

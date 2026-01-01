@@ -1,0 +1,9 @@
+// Jump operations test program (simplified for now)
+// addi x1, x0, 1
+// addi x2, x0, 2
+// addi x3, x0, 3
+// Expected: x1=1, x2=2, x3=3 (jumps not fully implemented yet)
+00100093
+00200113
+00300193
+

@@ -1,0 +1,7 @@
+// Memory operations test program
+// addi x1, x0, 0x100
+// sw x1, 0(x0)
+// lw x2, 0(x0)
+10000093
+00102023
+00002103

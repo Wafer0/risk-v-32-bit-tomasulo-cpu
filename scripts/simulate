@@ -1,0 +1,139 @@
+#!/bin/bash
+# Unified simulation script for Tomasulo Out-of-Order CPU
+# Runs all tests or specific test with correctness verification
+
+PROGRAM=${1:-all}
+BENCHMARK_MODE=${2:-false}
+
+TEST_PROGRAMS="test01_basic_arithmetic test02_logic_operations test03_shifts test06_memory_ops test07_branches test08_jumps benchmark"
+
+if [ "$PROGRAM" = "all" ]; then
+    echo "Running all test programs with correctness verification..."
+    echo "================================================================="
+    echo ""
+
+    PASSED=0
+    FAILED=0
+    TOTAL=0
+
+    mkdir -p sim
+
+    for test in $TEST_PROGRAMS; do
+        TOTAL=$((TOTAL + 1))
+        echo "Testing: $test"
+        echo "----------------"
+
+        # Compile
+        iverilog -g2012 -o sim/${test}.vvp \
+            -DPROGRAM_FILE=\"test/programs/${test}.hex\" \
+            -DTEST_NAME=\"${test}\" \
+            -DSIMULATION_CYCLES=500 \
+            rtl/*.sv tb/top_tb.sv 2>/dev/null
+
+        if [ $? -ne 0 ]; then
+            echo "❌ COMPILATION FAILED for $test"
+            FAILED=$((FAILED + 1))
+            echo ""
+            continue
+        fi
+
+        # Run simulation and capture output
+        OUTPUT=$(vvp sim/${test}.vvp 2>&1)
+        REGISTER_LINE=$(echo "$OUTPUT" | grep -A1 "Register File:" | tail -1)
+
+        # Compare with expected
+        EXPECTED_FILE="test/expected/${test}.expected"
+        if [ -f "$EXPECTED_FILE" ]; then
+            EXPECTED=$(cat "$EXPECTED_FILE" | tr -d '\n')
+            ACTUAL=$(echo "$REGISTER_LINE" | tr -d '\n')
+
+            if [ "$EXPECTED" = "$ACTUAL" ]; then
+                echo "✅ PASSED: $test"
+                echo "   Expected: $EXPECTED"
+                echo "   Actual:   $ACTUAL"
+                PASSED=$((PASSED + 1))
+            else
+                echo "❌ FAILED: $test"
+                echo "   Expected: $EXPECTED"
+                echo "   Actual:   $ACTUAL"
+                FAILED=$((FAILED + 1))
+            fi
+        else
+            echo "⚠️  NO EXPECTED FILE: $test"
+            echo "   Actual: $REGISTER_LINE"
+            FAILED=$((FAILED + 1))
+        fi
+
+        # Check for simulation errors
+        if echo "$OUTPUT" | grep -q "ERROR\|Error\|error"; then
+            echo "⚠️  SIMULATION ERRORS detected in $test"
+        fi
+
+        echo ""
+    done
+
+    echo "================================================================="
+    echo "SUMMARY:"
+    echo "  Total tests: $TOTAL"
+    echo "  Passed:      $PASSED"
+    echo "  Failed:      $FAILED"
+    echo ""
+
+    if [ $FAILED -eq 0 ]; then
+        echo "🎉 ALL TESTS PASSED!"
+        exit 0
+    else
+        echo "❌ SOME TESTS FAILED!"
+        exit 1
+    fi
+
+else
+    # Single test mode
+    if [ "$BENCHMARK_MODE" = "benchmark" ] || [ "$BENCHMARK_MODE" = "true" ] || [ "$BENCHMARK_MODE" = "1" ]; then
+        BENCHMARK_FLAG="-DBENCHMARK_MODE"
+        echo "Running benchmark simulation: $PROGRAM"
+    else
+        BENCHMARK_FLAG=""
+        echo "Running simulation: $PROGRAM"
+    fi
+
+    echo ""
+
+    mkdir -p sim
+
+    iverilog -g2012 -o sim/${PROGRAM}.vvp \
+        -DPROGRAM_FILE=\"test/programs/${PROGRAM}.hex\" \
+        -DTEST_NAME=\"${PROGRAM}\" \
+        -DSIMULATION_CYCLES=500 \
+        $BENCHMARK_FLAG \
+        rtl/*.sv tb/top_tb.sv
+
+    if [ $? -ne 0 ]; then
+        echo "Compilation failed"
+        exit 1
+    fi
+
+    # Run simulation
+    if [ -n "$BENCHMARK_FLAG" ]; then
+        # Benchmark mode: capture output for statistics
+        vvp sim/${PROGRAM}.vvp 2>&1 | tee sim/${PROGRAM}_output.log
+
+        # Extract statistics from output
+        STATS_FILE="sim/${PROGRAM}_stats.txt"
+        grep -E "STATS:|Cycles:|Instructions:|IPC:" sim/${PROGRAM}_output.log > "$STATS_FILE" || true
+
+        echo ""
+        echo "Simulation complete"
+        if [ -f "$STATS_FILE" ]; then
+            echo "Statistics saved to $STATS_FILE"
+            cat "$STATS_FILE"
+        fi
+    else
+        # Normal mode: direct output
+        vvp sim/${PROGRAM}.vvp
+        echo ""
+        echo "Simulation complete"
+    fi
+fi
+
+

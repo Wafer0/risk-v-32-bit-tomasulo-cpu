@@ -1,0 +1,31 @@
+{
+    "DESIGN_NAME": "top",
+    "PDK": "sky130A",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "VERILOG_FILES": [
+        "../rtl/top.sv",
+        "../rtl/structs.sv",
+        "../rtl/fifo.sv",
+        "../rtl/pc_gen.sv",
+        "../rtl/instr_mem.sv",
+        "../rtl/ifq.sv",
+        "../rtl/decoder.sv",
+        "../rtl/rat.sv",
+        "../rtl/reg_file.sv",
+        "../rtl/dispatch.sv",
+        "../rtl/reservation_station.sv",
+        "../rtl/issue_queue.sv",
+        "../rtl/alu.sv",
+        "../rtl/branch_unit.sv",
+        "../rtl/lsu.sv",
+        "../rtl/cdb.sv",
+        "../rtl/reorder_buffer.sv"
+    ],
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "CLOCK_PERIOD": 20.0,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 2000 2000",
+    "PL_TARGET_DENSITY": 0.30,
+    "SYNTH_STRATEGY": "DELAY 0"
+}

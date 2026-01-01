@@ -1,0 +1,19 @@
+Design Name: top
+Run Directory: /project/openlane/runs/run_1
+----------------------------------------
+
+Magic DRC Summary:
+Source: /project/openlane/runs/run_1/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /project/openlane/runs/run_1/logs/signoff/41-top.lef.lvs.log
+Number of nets: 2116                       |Number of nets: 2116                       
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /project/openlane/runs/run_1/logs/signoff/43-arc.log
+Pin violations: 44
+Net violations: 32
